@@ -1,3 +1,4 @@
+'use client'
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import annotationPlugin from 'chartjs-plugin-annotation';
@@ -7,7 +8,7 @@ import ChartStreaming from 'chartjs-plugin-streaming';
 
 
 
-function grafico() {
+function Grafico() {
     Chart.register(annotationPlugin, ChartStreaming);
 
     const onRefresh = (chart) => {
@@ -117,4 +118,4 @@ function grafico() {
     );
 }
 
-export default grafico
+export default Grafico

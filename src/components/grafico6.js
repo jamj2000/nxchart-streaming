@@ -1,12 +1,12 @@
-// 'use client'
+// https://stackoverflow.com/questions/67913985/chartjs-plugin-zoom-not-working-with-my-react-project
+'use client'
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
 import 'chartjs-adapter-luxon';
-import ChartStreaming from 'chartjs-plugin-streaming';
-import zoomPlugin from 'chartjs-plugin-zoom';
-
+import ChartStreaming from 'chartjs-plugin-streaming'
+import zoomPlugin from 'chartjs-plugin-zoom';    // NO USAR ESTE PLUGIN EN PRODUCCIÓN: npm run build fallará.
 
 const onRefresh = (chart) => {
   const now = Date.now();
@@ -52,22 +52,48 @@ const options = {
           minDelay: 0,
           maxDelay: 4000,
           minDuration: 1000,
-          maxDuration: 400000
+          maxDuration: 20000
         }
       },
     },    
     annotation: {
       annotations: {
-        line: {
+        linea1: {
           drawTime: 'beforeDatasetsDraw',
           type: 'line',
           scaleID: 'y',
           value: 0,
           borderColor: 'black',
-          borderWidth: 5,
+          borderWidth: 1,
           label: {
             backgroundColor: 'red',
-            content: 'Anotación',
+            // content: 'Anotación',
+            enabled: true
+          }
+        },
+        mensaje1: {
+          drawTime: 'beforeDatasetsDraw',
+          type: 'line',
+          scaleID: 'y',
+          value: 110,
+          borderColor: 'black',
+          borderWidth: 0,
+          label: {
+            backgroundColor: 'green',
+            content: 'Usa rueda de ratón para ZOOM',
+            enabled: true
+          }
+        },
+        mensaje2: {
+          drawTime: 'beforeDatasetsDraw',
+          type: 'line',
+          scaleID: 'y',
+          value: -110,
+          borderColor: 'black',
+          borderWidth: 0,
+          label: {
+            backgroundColor: 'green',
+            content: 'Deja pulsado botón del ratón y arrastra para PAN',
             enabled: true
           }
         },
@@ -125,7 +151,7 @@ const data = {
 
 
 
-function grafico() {
+function Grafico() {
   Chart.register(annotationPlugin, ChartStreaming, zoomPlugin);
 
   return (
@@ -135,4 +161,4 @@ function grafico() {
   );
 }
 
-export default grafico
+export default Grafico

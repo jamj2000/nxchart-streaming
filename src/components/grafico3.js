@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import annotationPlugin from 'chartjs-plugin-annotation';
@@ -82,7 +82,7 @@ const data = {
 
 
 
-function grafico() {
+function Grafico() {
   Chart.register(annotationPlugin, ChartStreaming);
 
   return (
@@ -92,4 +92,4 @@ function grafico() {
   );
 }
 
-export default grafico
+export default Grafico
