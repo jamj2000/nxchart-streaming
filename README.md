@@ -2,6 +2,8 @@
 
 Aplicación que muestra gráficas de datos con flujo temporal.
 
+![streaming](streaming.avif)
+
 Paquetes usados:
 
 
