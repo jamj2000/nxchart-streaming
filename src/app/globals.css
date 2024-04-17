@@ -34,7 +34,7 @@ a:hover {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   /* margin: 40px; */
 }
@@ -47,6 +47,14 @@ h1 {
 h2 {
   font-size: 1.4rem;
 }
+
+@media (width < 1500px ) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+} 
+
 
 @media (width < 1000px ) {
   .grid {
